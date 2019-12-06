@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<beans
+	default-destroy-method="destroy"
+	default-init-method="afterPropertiesSet"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+>
+	<bean class="com.liferay.course.service.impl.CourseLocalServiceImpl" id="com.liferay.course.service.CourseLocalService" />
+	<bean class="com.liferay.course.service.impl.CourseServiceImpl" id="com.liferay.course.service.CourseService" />
+	<bean class="com.liferay.course.service.persistence.impl.CoursePersistenceImpl" id="com.liferay.course.service.persistence.CoursePersistence" parent="basePersistence" />
+	<bean class="com.liferay.course.service.impl.CourseValidatorLocalServiceImpl" id="com.liferay.course.service.CourseValidatorLocalService" />
+	<bean class="com.liferay.course.service.impl.CourseValidatorServiceImpl" id="com.liferay.course.service.CourseValidatorService" />
+</beans>

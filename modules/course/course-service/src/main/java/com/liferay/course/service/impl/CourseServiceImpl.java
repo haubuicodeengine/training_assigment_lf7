@@ -71,6 +71,12 @@ public class CourseServiceImpl extends CourseServiceBaseImpl {
 			groupId, keywords, start, end, orderByComparator);
 	}
 
+	public long getCoursesCount() {
+
+		return Long.valueOf(
+			String.valueOf(courseLocalService.getCoursesCount()));
+	}
+
 	public long getCoursesCountByKeywords(long groupId, String keywords) {
 
 		return courseLocalService.getCoursesCountByKeywords(groupId, keywords);

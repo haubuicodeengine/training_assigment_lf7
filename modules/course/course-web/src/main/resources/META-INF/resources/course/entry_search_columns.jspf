@@ -1,0 +1,28 @@
+<%@ include file="../init.jsp" %>
+
+<portlet:renderURL var="viewCourseURL">
+	<portlet:param name="mvcRenderCommandName" value="<%= CoursePortletConstants.COURSE_COMMAND_VIEW_COURSE %>" />
+	<portlet:param name="redirect" value="${currentURL}" />
+	<portlet:param name="courseId" value="${entry.courseId}" />
+</portlet:renderURL>
+
+<liferay-ui:search-container-column-text
+	href="${viewCourseURL}"
+	name="name"
+	value="<%= entry.getName(locale) %>"
+/>
+
+<liferay-ui:search-container-column-text
+	name="lecturer"
+	value="<%= entry.getLecturer(locale) %>"
+/>
+
+<liferay-ui:search-container-column-date
+	name="create-date"
+	property="createDate"
+/>
+
+<liferay-ui:search-container-column-jsp
+	name="actions"
+	path="/course/entry_actions.jsp"
+/>

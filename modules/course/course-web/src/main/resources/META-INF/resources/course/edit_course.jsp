@@ -7,6 +7,7 @@
 <liferay-ui:error key="please-enter-no-more-than-2000-characters-in-duration-field" message="please-enter-no-more-than-2000-characters-in-duration-field" />
 <liferay-ui:error key="courseLecturerEmpty" message="lecturer-is-not-empty" />
 <liferay-ui:error key="courseNameEmpty" message="name-is-not-empty" />
+<liferay-ui:error key="you-are-only-allowed-to-create-up-to-3-courses" message="you-are-only-allowed-to-create-up-to-3-courses" />
 
 <c:choose>
      <c:when test="${not empty course}">

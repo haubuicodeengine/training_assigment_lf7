@@ -99,6 +99,12 @@ public class CourseLocalServiceImpl extends CourseLocalServiceBaseImpl {
 			orderByComparator);
 	}
 
+	public long getCoursesCountByGroupIdAndUserId(long groupId, long userId) {
+
+		return courseLocalService.dynamicQueryCount(
+			getGroupUserSearchDynamicQuery(groupId, userId));
+	}
+
 	public long getCoursesCountByKeywords(long groupId, String keywords) {
 
 		return courseLocalService.dynamicQueryCount(
@@ -125,6 +131,18 @@ public class CourseLocalServiceImpl extends CourseLocalServiceBaseImpl {
 		return super.updateCourse(course);
 	}
 
+	private DynamicQuery getGroupUserSearchDynamicQuery(
+		long groupId, long userId) {
+
+		DynamicQuery dynamicQuery = dynamicQuery();
+
+		dynamicQuery.add(RestrictionsFactoryUtil.eq("groupId", groupId));
+
+		dynamicQuery.add(RestrictionsFactoryUtil.eq("userId", userId));
+
+		return dynamicQuery;
+	}
+
 	private DynamicQuery getKeywordSearchDynamicQuery(
 		long groupId, String keywords) {
 
@@ -145,4 +163,5 @@ public class CourseLocalServiceImpl extends CourseLocalServiceBaseImpl {
 
 		return dynamicQuery;
 	}
+
 }

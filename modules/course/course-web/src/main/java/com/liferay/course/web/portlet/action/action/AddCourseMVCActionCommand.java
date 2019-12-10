@@ -7,6 +7,7 @@ import com.liferay.course.service.CourseService;
 import com.liferay.course.web.constants.CoursePortletConstants;
 import com.liferay.course.web.constants.CoursePortletKeys;
 import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.portlet.bridges.mvc.BaseMVCActionCommand;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
 import com.liferay.portal.kernel.service.ServiceContext;
@@ -81,9 +82,11 @@ public class AddCourseMVCActionCommand extends BaseMVCActionCommand{
 				CommonConstants.PARAM_MVC_RENDER_COMMAND_NAME,
 				CoursePortletConstants.COURSE_COMMAND_EDIT_COURSE);
 		}
-		catch (PortalException e) {
+		catch (PortalException | SystemException e) {
 
 			e.printStackTrace();
+
+			SessionErrors.add(actionRequest, e.getMessage());
 
 			actionResponse.setRenderParameter(
 				CommonConstants.PARAM_MVC_RENDER_COMMAND_NAME,

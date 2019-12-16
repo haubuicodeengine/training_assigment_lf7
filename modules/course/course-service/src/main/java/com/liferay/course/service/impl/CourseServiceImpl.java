@@ -17,6 +17,8 @@ package com.liferay.course.service.impl;
 import com.liferay.course.model.Course;
 import com.liferay.course.service.base.CourseServiceBaseImpl;
 import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.search.Indexable;
+import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.util.OrderByComparator;
 
@@ -51,6 +53,7 @@ public class CourseServiceImpl extends CourseServiceBaseImpl {
 			serviceContext);
 	}
 
+	@Indexable(type = IndexableType.DELETE)
 	public void deleteCourse(long courseId)
 		throws PortalException {
 
